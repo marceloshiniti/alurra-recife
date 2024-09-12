@@ -56,7 +56,7 @@
 							{% endif %}
 							{% if not(variation.name in ['Color', 'Cor']) or ((variation.name in ['Color', 'Cor']) and not option.custom_data and not settings.image_color_variants) %}
 								{{ option.name }}
-							{% endif %} 
+							{% endif %}
 						</span>
 					</a>
 				{% endfor %}

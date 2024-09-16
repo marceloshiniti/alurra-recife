@@ -105,14 +105,16 @@
 					{% endif %}
 				{% endif %}
 				{% if has_social_network %}
-					<div class="col-md py-3 text-center{% if template != 'password' %} text-md-left{% endif %}">
-						{% include "snipplets/social/social-links.tpl" %}
+					<div class="col-md text-center{% if template != 'password' %} text-md-left{% endif %}">
+						<!--{% include "snipplets/social/social-links.tpl" %}-->
+						<div class="h5 col p-3">Pagamento</div>
+						<span style="margin-left: 10px;">{{ "images/pagamento.png" | static_url | img_tag("Pagamento") }}</span>
 					</div>
 				{% endif %}
 			</div>
 		</div>
 
-		{% if template != 'password' and (has_shipping_payment_logos or has_languages or has_seal_logos) %}
+		<!--{% if template != 'password' and (has_shipping_payment_logos or has_languages or has_seal_logos) %}
 			<div class="divider d-none d-md-block m-0"></div>
 			<div class="container">
 				{% if has_shipping_payment_logos or has_languages %}
@@ -196,14 +198,15 @@
 				{% endif %}
 
 			</div>
-		{% endif %}
+		{% endif %}-->
 
-	<div class="js-footer-legal footer-legal">
-		<div class="container">
-			<div class="row align-items-center text-center text-md-left">
+	<div class="js-footer-legal footer-legal" style="padding: 25px 0; background: #111111;">
+		<div class="container" style="border-top: 1px solid #1E1E1E; padding-top: 25px;">
+			<div class="row align-items-center text-center text-md-center">
 				<div class="col-md font-smallest">
-					<div class="d-inline-block mr-md-2">
-						{{ "Copyright {1} - {2}. Todos los derechos reservados." | translate( (store.business_name ? store.business_name : store.name) ~ (store.business_id ? ' - ' ~ store.business_id : ''), "now" | date('Y') ) }}
+					<div class="d-inline-block mr-md-2" style="font-size:14px; ">
+						© Alurra 2024 - Todos os direitos reservados. Desenvolvido por <a href="https://dna360.ag/" target="_blank">dna360</a>
+						<!--{{ "Copyright {1} - {2}. Todos los derechos reservados." | translate( (store.business_name ? store.business_name : store.name) ~ (store.business_id ? ' - ' ~ store.business_id : ''), "now" | date('Y') ) }}-->
 					</div>
 
 					{{ component('claim-info', {
@@ -217,7 +220,7 @@
 						}) 
 					}}
 				</div>
-				<div class="col-md-auto">
+				<!--<div class="col-md-auto">
 					{#
 					La leyenda que aparece debajo de esta linea de código debe mantenerse
 					con las mismas palabras y con su apropiado link a Tienda Nube;
@@ -231,7 +234,7 @@
 					manter visivél e com um link funcionando.
 					#}
 					{{ new_powered_by_link }}
-				</div>
+				</div>-->
 			</div>
 		</div>
 	</div>

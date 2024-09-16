@@ -66,4 +66,62 @@
             </div>
         {% endif %}
     </section>
+
+    <section style="background-color: #F2F2F2; padding: 25px 0;">
+        <div class="container position-relative">
+        <div class="filtro-numeracao">
+        <label for="numeracao">Filtrar por numeração</label>
+            <div class="numeracao-opcoes">
+                <button class="numero-opcao"><a href="#">33</a></button>
+                <button class="numero-opcao"><a href="#">34</a></button>
+                <button class="numero-opcao"><a href="#">35</a></button>
+                <button class="numero-opcao"><a href="#">36</a></button>
+                <button class="numero-opcao"><a href="#">37</a></button>
+                <button class="numero-opcao"><a href="#">38</a></button>
+                <button class="numero-opcao"><a href="#">39</a></button>
+                <button class="numero-opcao"><a href="#">40</a></button>
+                <button class="numero-opcao"><a href="#">41</a></button>
+                <button class="numero-opcao"><a href="#">42</a></button>
+                <button class="numero-opcao"><a href="#">43</a></button>
+                <button class="numero-opcao"><a href="#">44</a></button>
+                <button class="numero-opcao"><a href="#">45</a></button>
+            </div>
+        </div>
+
+        <style>
+        .filtro-numeracao {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .filtro-numeracao label {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .numeracao-opcoes {
+            display: flex;
+            gap: 8px;
+        }
+
+        .numero-opcao {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            background-color: transparent;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .numero-opcao:hover {
+            background-color: #f0f0f0;
+        }
+        </style>
+        </div>
+    </section>
 {% endif %}

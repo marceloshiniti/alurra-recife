@@ -56,6 +56,12 @@
 
 {% set head_desktop_nav_color_classes =  settings.desktop_nav_colors and not head_nav_inline_desktop_classes ? 'head-nav-desktop-colors' %}
 
+{# Adversiting bar #}
+    
+{% if settings.ad_bar %}
+    {% snipplet "header/header-advertising.tpl" %}
+{% endif %}
+
 <header class="js-head-main head-main {{ header_colors_classes }} {{ head_position_mobile }} {{ head_position_desktop }} {{ header_logo_mobile_classes }} {{ header_logo_mobile_search_icon_classes }} {{ header_logo_desktop_classes }} {{ header_logo_left_nav_below_desktop_classes }} {{ head_nav_inline_desktop_classes }} {{ head_desktop_nav_color_classes }} transition-soft" data-store="head">
 
     {# Secondary nav and account links #}
@@ -154,12 +160,6 @@
 {# Follow order notification #}
 
 {% include "snipplets/notification.tpl" with {order_notification: true} %}
-
-{# Adversiting bar #}
-    
-{% if settings.ad_bar %}
-    {% snipplet "header/header-advertising.tpl" %}
-{% endif %}
 
 {# Show cookie validation message #}
 

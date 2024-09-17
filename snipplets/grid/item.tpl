@@ -75,8 +75,8 @@
             {% if (settings.quick_shop or settings.product_color_variants) and product.available and product.display_price and product.variations %}
 
                 {# Hidden product form to update item image and variants: Also this is used for quickshop popup #}
-
-                <div class="js-item-variants hidden">
+                
+                <div class="js-item-variants">
                     <form class="js-product-form" method="post" action="{{ store.cart_url }}">
                         <input type="hidden" name="add_to_cart" value="{{product.id}}" />
                         {% if product.variations %}
@@ -92,11 +92,11 @@
                         <div class="row no-gutters mt-3">
 
                             {% if show_product_quantity %}
-                                {% include "snipplets/product/product-quantity.tpl" with {quickshop: true} %}
+                                <!--{% include "snipplets/product/product-quantity.tpl" with {quickshop: true} %}-->
                             {% endif %}
 
-                            <div class="{% if show_product_quantity %}col-8 col-md-9{% else %}col-12{% endif %}">
-
+                            <div class="{% if show_product_quantity %}col-8 col-md-12{% else %}col-12{% endif %}">
+        
                                 <input type="submit" class="js-addtocart js-prod-submit-form btn-add-to-cart btn btn-primary btn-big w-100 {{ state }}" value="{{ texts[state] | translate }}" {% if state == 'nostock' %}disabled{% endif %} />
 
                                 {# Fake add to cart CTA visible during add to cart event #}
@@ -106,6 +106,42 @@
                         </div>
                     </form>
                 </div>
+
+                <style>
+                .js-item-variants {
+                    display: none;
+                    position: absolute;
+                    top: 10%;
+                    z-index: 66666;
+                    padding: 15px 30px 15px 30px;
+                    margin: 0 20px;
+                    background: rgba(255, 255, 255, 0.9);
+                }
+
+                .item:hover .js-item-variants {
+                    display: block;
+                }
+
+                </style>
+
+                <script>
+                document.querySelectorAll('.item').forEach(function(productItem) {
+                    productItem.addEventListener('mouseenter', function() {
+                        var variants = productItem.querySelector('.js-item-variants');
+                        if (variants) {
+                            variants.style.display = 'block'; // Exibe as variações ao passar o mouse
+                        }
+                    });
+
+                    productItem.addEventListener('mouseleave', function() {
+                        var variants = productItem.querySelector('.js-item-variants');
+                        if (variants) {
+                            variants.style.display = 'none'; // Oculta as variações ao remover o mouse
+                        }
+                    });
+                });
+
+                </script>
 
             {% endif %}
             {% set show_labels = not product.has_stock or product.compare_at_price or product.promotional_offer %}
@@ -147,7 +183,7 @@
                     {% endif %}
                     {% if product.available and product.display_price and settings.quick_shop %}
                         {% if settings.quick_shop %}
-                            <div class="item-actions d-inline-block">
+                            <!--<div class="item-actions d-inline-block">
                                 {% if product.variations %}
 
                                     {# Open quickshop popup if has variants #}
@@ -171,7 +207,7 @@
                                         {% include 'snipplets/placeholders/button-placeholder.tpl' with {direct_add: true} %}
                                     </form>
                                 {% endif %}
-                            </div>
+                            </div>-->
                         {% endif %}
                     {% endif %}
                 </a>

@@ -67,7 +67,7 @@
         {% endif %}
     </section>
 
-    <section style="background-color: #F2F2F2; padding: 25px 0;">
+    <section class="filtros-numeracao-home">
         <div class="container position-relative">
         <div class="filtro-numeracao">
         <label for="numeracao">Filtrar por numeração</label>
@@ -88,40 +88,6 @@
             </div>
         </div>
 
-        <style>
-        .filtro-numeracao {
-            font-family: Arial, sans-serif;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            justify-content: center;
-        }
-
-        .filtro-numeracao label {
-            font-size: 18px;
-            font-weight: 500;
-        }
-
-        .numeracao-opcoes {
-            display: flex;
-            gap: 8px;
-        }
-
-        .numero-opcao {
-            width: 40px;
-            height: 40px;
-            border: 1px solid #ccc;
-            border-radius: 50%;
-            background-color: transparent;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-        }
-
-        .numero-opcao:hover {
-            background-color: #f0f0f0;
-        }
-        </style>
         </div>
     </section>
 {% endif %}

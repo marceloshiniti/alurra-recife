@@ -1,7 +1,7 @@
 {% if settings.video_embed %}
     {% set has_video_text = settings.video_title or settings.video_subtitle or settings.video_text or (settings.video_button and settings.video_button_url)  %}
         {% set has_video_full = settings.video_full %}
-    <section class="js-section-video section-video-home position-relative{% if not has_video_full %} section-home{% endif %}" data-store="home-video" data-transition="fade-in-up">
+    <section class="js-section-video section-video-home position-relative{% if not has_video_full %} section-home{% endif %} {% if template == "home" %}home-dna-video{% endif %}" data-store="home-video" data-transition="fade-in-up">
         {% if not has_video_full %}
             <div class="container position-relative">
         {% endif %}

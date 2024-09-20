@@ -1288,6 +1288,7 @@ Listado de productos
 		name = grid_columns_desktop
 		description = Cantidad de productos por fila en computadoras
 		values
+			3 = 3 productos
 			4 = 4 productos
 			5 = 5 productos
 	dropdown

@@ -62,7 +62,11 @@
     {% snipplet "header/header-advertising.tpl" %}
 {% endif %}
 
-<header class="js-head-main head-main {{ header_colors_classes }} {{ head_position_mobile }} {{ head_position_desktop }} {{ header_logo_mobile_classes }} {{ header_logo_mobile_search_icon_classes }} {{ header_logo_desktop_classes }} {{ header_logo_left_nav_below_desktop_classes }} {{ head_nav_inline_desktop_classes }} {{ head_desktop_nav_color_classes }} transition-soft" data-store="head">
+{% if template == 'home'%}
+            {% snipplet 'preload-images.tpl' %}
+{% endif %}
+
+<header class="js-head-main head-main {{ header_colors_classes }} {{ head_position_mobile }} {{ head_position_desktop }} {{ header_logo_mobile_classes }} {{ header_logo_mobile_search_icon_classes }} {{ header_logo_desktop_classes }} {{ header_logo_left_nav_below_desktop_classes }} {{ head_nav_inline_desktop_classes }} {{ head_desktop_nav_color_classes }} transition-soft {% if template == "home" %}home-dna{% endif %}" data-store="head">
 
     {# Secondary nav and account links #}
 

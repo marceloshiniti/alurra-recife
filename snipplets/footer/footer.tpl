@@ -107,7 +107,7 @@
 				{% if has_social_network %}
 					<div class="col-md text-center{% if template != 'password' %} text-md-left{% endif %} rodape-dna">
 						<!--{% include "snipplets/social/social-links.tpl" %}-->
-						<div class="h5 col p-3">Pagamento</div>
+						<div class="h5 col p-3">PAGAMENTO</div>
 						<span style="margin-left: 10px;">{{ "images/pagamento.png" | static_url | img_tag("Pagamento") }}</span>
 					</div>
 				{% endif %}

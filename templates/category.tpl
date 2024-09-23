@@ -45,10 +45,44 @@
 
 <section class="category-body {% if settings.filters_desktop_modal %}pt-md-2{% endif %}" data-store="category-grid-{{ category.id }}">
 	<div class="container mt-3 mb-5">
-		<div class="row">
+		<div class="row" style="margin-top: 30px; margin-bottom: 30px;">
 			{% include 'snipplets/grid/filters-sidebar.tpl' %}
 			{% include 'snipplets/grid/products-list.tpl' %}
 		</div>
+
+		{% if category.id == 26390831 %}
+		<div class="row descricao-dna">
+		
+		<div class="col">
+		<h2 style="color: #1E1E1E; font-size: 16px;">Últimos Lançamentos</h2>
+		<p style="color: #ACACAC; font-size: 14px;">Quando se fala em venda de sandálias, estamos entrando em um universo onde a elegância encontra a casualidade, transitando entre o conforto diurno e o requinte noturno sem esforço. A sandália feminina não é apenas um item de vestuário, mas uma extensão da personalidade e do estilo de vida de quem as usa. Hoje, decifrar os segredos por trás de uma sandália feminina de qualidade é fundamental tanto para a vendedora quanto para a consumidora final.</p>
+		</div>
+		
+		<div class="col">
+		<h2 style="color: #1E1E1E; font-size: 16px;">O Significado Por Trás de Cada Par</h2>
+		<p style="color: #ACACAC; font-size: 14px;">Ao olhar para as prateleiras repletas de sandálias femininas você já se perguntou o que torna cada par único? Não é somente o design ou o material, é a história que esses calçados contam. Cada par de sandálias é uma narrativa prestes a ser entrelaçada com a jornada individual da cliente. O artesão que escolhe o couro, o designer que pensa cada curva, e o sorriso de satisfação da mulher quando encontra “aquela” sandália, tudo isso compõe a tapeçaria rica e colorida do comércio desse item atemporal.</p>
+		</div>
+		
+		</div>
+		
+		{% endif %}
+
+		{% if category.id == 26390832 %}
+		<div class="row descricao-dna">
+		
+		<div class="col">
+		<h2 style="color: #1E1E1E; font-size: 16px;">A Arte e a Versatilidade na Venda de Sandálias</h2>
+		<p style="color: #ACACAC; font-size: 14px;">Quando se fala em venda de sandálias, estamos entrando em um universo onde a elegância encontra a casualidade, transitando entre o conforto diurno e o requinte noturno sem esforço. A sandália feminina não é apenas um item de vestuário, mas uma extensão da personalidade e do estilo de vida de quem as usa. Hoje, decifrar os segredos por trás de uma sandália feminina de qualidade é fundamental tanto para a vendedora quanto para a consumidora final.</p>
+		</div>
+		
+		<div class="col">
+		<h2 style="color: #1E1E1E; font-size: 16px;">O Significado Por Trás de Cada Par</h2>
+		<p style="color: #ACACAC; font-size: 14px;">Ao olhar para as prateleiras repletas de sandálias femininas você já se perguntou o que torna cada par único? Não é somente o design ou o material, é a história que esses calçados contam. Cada par de sandálias é uma narrativa prestes a ser entrelaçada com a jornada individual da cliente. O artesão que escolhe o couro, o designer que pensa cada curva, e o sorriso de satisfação da mulher quando encontra “aquela” sandália, tudo isso compõe a tapeçaria rica e colorida do comércio desse item atemporal.</p>
+		</div>
+
+		</div>
+		{% endif %}
+
 	</div>
 </section>
 {% elseif show_help %}

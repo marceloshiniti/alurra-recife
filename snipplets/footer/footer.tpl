@@ -78,7 +78,7 @@
 
 					{# Contact info #}
 					{% if has_footer_contact_info %}
-						<div class="{% if settings.footer_menus_toggle %}js-accordion-private-container accordion{% endif %} col-md">
+						<div class="{% if settings.footer_menus_toggle %}js-accordion-private-container accordion{% endif %} col-md margin-dna-mobile">
 							{% if settings.footer_menus_toggle %}
 								<a href="#" class="js-accordion-private-toggle-mobile row">
 							{% endif %}
@@ -105,7 +105,7 @@
 					{% endif %}
 				{% endif %}
 				{% if has_social_network %}
-					<div class="col-md text-center{% if template != 'password' %} text-md-left{% endif %} rodape-dna">
+					<div class="col-md text-center{% if template != 'password' %} text-md-left{% endif %} rodape-dna margin-dna-mobile">
 						<!--{% include "snipplets/social/social-links.tpl" %}-->
 						<div class="h5 col p-3">PAGAMENTO</div>
 						<span style="margin-left: 10px;">{{ "images/pagamento.png" | static_url | img_tag("Pagamento") }}</span>

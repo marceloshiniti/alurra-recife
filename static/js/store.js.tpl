@@ -1598,6 +1598,12 @@ DOMContentLoaded.addEventOrExecute(() => {
                     nextEl: '.js-swiper-categories-next',
                     prevEl: '.js-swiper-categories-prev',
                 },
+                scrollbar: {
+                el: '.swiper-scrollbar',
+                draggable: true,
+                hide: false,
+                },
+                freeMode: true,
                 on: {
                     afterInit: function () {
                         hideSwiperControls(".js-swiper-categories-prev", ".js-swiper-categories-next");
@@ -1608,6 +1614,7 @@ DOMContentLoaded.addEventOrExecute(() => {
                         loop: false,
                         centeredSlides: false,
                         slidesPerView: 'auto',
+                        freeMode: true, // permite arrastar o slide no mobile
                     }
                 }
             });
@@ -1630,12 +1637,18 @@ DOMContentLoaded.addEventOrExecute(() => {
                 nextEl: '.js-swiper-categories-next-demo',
                 prevEl: '.js-swiper-categories-prev-demo',
             },
-            
+            scrollbar: {
+                el: '.swiper-scrollbar',
+                draggable: true,
+                hide: false,
+                },
+                freeMode: true,
             breakpoints: {
                 768: {
                     loop: false,
                     centeredSlides: false,
                     slidesPerView: 'auto',
+                    freeMode: true, // permite arrastar o slide no mobile
                 }
             }
         });

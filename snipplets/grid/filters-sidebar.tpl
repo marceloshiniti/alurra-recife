@@ -19,7 +19,8 @@
 {% if not settings.filters_desktop_modal and (category_page or search_page_filters) and show_filters %}
 <div class="col-md-auto filters-sidebar d-none d-md-block visible-when-content-ready">
         {% if products %}
-            {% include 'snipplets/grid/sort-by.tpl' %}
+
+            <h6 class="font-big font-weight-bold mb-3" style="font-size: 22px !important;"><img src="{{ 'images/filtro.svg' | static_url }}"> Filtrar por</h6>
 
             {{ component(
                 'filters/filters',{

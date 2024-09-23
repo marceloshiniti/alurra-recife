@@ -25,6 +25,10 @@
     {% if select_label %}
         <label {% if select_label_id%}id="{{ select_label_id }}"{% endif %} class="form-label {{ select_label_custom_class }}" {% if select_for %}for="{{ select_for }}"{% endif %}>{{ select_label_name }}</label>
     {% endif %}
+    <div class="form-select-icon">
+        <img src="{{ 'images/ordenacao.svg' | static_url }}">
+        <!--<svg class="icon-inline icon-w-14"><use xlink:href="#chevron-down"/></svg>-->
+    </div>
     <select 
         {% if select_id %}id="{{ select_id }}"{% endif %}
         class="form-select {{ select_custom_class }} {% if select_inline %}form-control-inline{% endif %}"
@@ -33,9 +37,6 @@
         {% block select_options %}
         {% endblock select_options %}
     </select>
-    <div class="form-select-icon">
-        <svg class="icon-inline icon-w-14"><use xlink:href="#chevron-down"/></svg>
-    </div>
 </div>
 
 

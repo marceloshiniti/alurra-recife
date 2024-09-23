@@ -39,11 +39,11 @@
         <div class="col">
             <div class="m-0">
             	<svg class="icon-inline icon-lg svg-icon-text mr-1"><use xlink:href="#truck"/></svg>
-            	{{ 'Medios de envío' | translate }}
+            	{{ 'Consulte o valor do frete' | translate }}
             </div>
         </div>
         <div class="col-auto">
-            <span class="js-accordion-private-toggle-inactive">
+            <span class="js-accordion-private-toggle-inactive" style="display: none;">
                 <svg class="icon-inline svg-icon-text"><use xlink:href="#plus"/></svg>
             </span>
             <span class="js-accordion-private-toggle-active" style="display: none;">
@@ -51,7 +51,7 @@
             </span>
         </div>
     </a>
-    <div class="js-accordion-private-content" style="display: none;">
+    <div class="js-accordion-private-content" style="display: block;">
     	<div data-store="shipping-calculator">
 			{% set show_free_shipping_label = free_shipping_messages_visible and (product_detail or not has_free_shipping_bar) %}
 			<div class="js-shipping-calculator-head shipping-calculator-head position-relative transition-soft {% if cart_zipcode %}with-zip{% else %}with-form{% endif %} {% if show_free_shipping_label %}with-free-shipping{% endif %}">

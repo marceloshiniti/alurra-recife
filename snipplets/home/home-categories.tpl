@@ -10,7 +10,7 @@
             {% endif %}
 
             <div class="js-swiper-categories swiper-container w-auto">
-                <div class="swiper-wrapper">
+                <div class="swiper-wrapper" scrollbar-hide="true">
                     {% for slide in settings.slider_categories %}
                         <div class="swiper-slide w-md-auto">
                             {% if slide.link %}
@@ -33,6 +33,10 @@
                     {% endfor %}
                 </div>
             </div>
+            
+            <!-- scrollbar -->
+            <div class="swiper-scrollbar"></div>
+            
             <div class="js-swiper-categories-prev swiper-button-prev swiper-button-outside svg-icon-text d-none d-md-block">
                 <svg class="icon-inline icon-lg icon-flip-horizontal svg-icon-text"><use xlink:href="#chevron"/></svg>
             </div>

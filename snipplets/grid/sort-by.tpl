@@ -32,7 +32,7 @@
 	</div>
 {% else %}
 	<div class="mb-4 pb-2">
-		<h6 class="font-big font-weight-bold mb-3">{{ "Ordenar por" | translate }}</h6>
+		<!--<h6 class="font-big font-weight-bold mb-3">{{ "Ordenar por" | translate }}</h6>-->
 
 		{% embed "snipplets/forms/form-select.tpl" with{select_label: false, select_group_custom_class: "d-inline-block w-auto mb-0", select_custom_class: 'js-sort-by form-select-small', select_aria_label: 'Ordenar por:' | translate } %}
 			{% block select_options %}

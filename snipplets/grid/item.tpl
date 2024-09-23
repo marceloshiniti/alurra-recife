@@ -153,17 +153,8 @@
                     <div class="js-item-name item-name mb-2 font-small opacity-80" data-store="product-item-name-{{ product.id }}">{{ product.name }}</div>
                     {% if product.display_price %}
                         <div class="item-price-container {% if settings.quick_shop %}mb-3{% endif %}" data-store="product-item-price-{{ product.id }}">
-                            <div class="d-block mb-1 mr-1">
-                                <span class="js-price-display item-price font-weight-bold {% if settings.payment_discount_price %}font-body{% endif %}">
-                                    {{ product.price | money }}
-                                </span>
-                                {% include 'snipplets/labels.tpl' %}
-                            </div>
-                            <span class="js-compare-price-display price-compare" {% if not product.compare_at_price or not product.display_price %}style="display:none;"{% else %}style="display:inline-block;"{% endif %}>
-                                {{ product.compare_at_price | money }}
-                            </span>
-
-                             {% set product_can_show_installments = product.show_installments and product.display_price and product.get_max_installments.installment > 1 and settings.product_installments %}
+                            
+                            {% set product_can_show_installments = product.show_installments and product.display_price and product.get_max_installments.installment > 1 and settings.product_installments %}
 
                             {% set discount_price_spacing_classes = product_can_show_installments ? 'mb-2' %}
 
@@ -176,6 +167,17 @@
                                     },
                                 }) 
                             }}
+
+                            <div class="d-block mb-1 mr-1">
+                                <span class="js-price-display item-price font-weight-bold {% if settings.payment_discount_price %}font-body{% endif %}">
+                                    {{ product.price | money }}
+                                </span>
+                                {% include 'snipplets/labels.tpl' %}
+                            </div>
+                            <span class="js-compare-price-display price-compare" {% if not product.compare_at_price or not product.display_price %}style="display:none;"{% else %}style="display:inline-block;"{% endif %}>
+                                {{ product.compare_at_price | money }}
+                            </span>
+
                             {% if product_can_show_installments %}
                                 {{ component('installments', {'location' : 'product_item' , 'short_wording' : true, container_classes: { installment: "item-installments mt-2"}}) }}
                             {% endif %}

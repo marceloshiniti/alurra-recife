@@ -80,11 +80,6 @@
                 <button class="numero-opcao"><a href="#">38</a></button>
                 <button class="numero-opcao"><a href="#">39</a></button>
                 <button class="numero-opcao"><a href="#">40</a></button>
-                <button class="numero-opcao"><a href="#">41</a></button>
-                <button class="numero-opcao"><a href="#">42</a></button>
-                <button class="numero-opcao"><a href="#">43</a></button>
-                <button class="numero-opcao"><a href="#">44</a></button>
-                <button class="numero-opcao"><a href="#">45</a></button>
             </div>
         </div>
 

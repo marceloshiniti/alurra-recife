@@ -23,6 +23,17 @@
 
     <div class="price-container" data-store="product-price-{{ product.id }}">
         <div class="mb-3">
+            
+            {{ component('payment-discount-price', {
+                    visibility_condition: settings.payment_discount_price,
+                    location: 'product',
+                    container_classes: "h6 font-weight-normal mt-2 dna-texto1",
+                    text_classes: {
+                        price: 'h5 text-accent font-weight-bold',
+                    },
+                }) 
+            }}
+
             <span class="d-inline-block mr-1">
             	<div class="js-price-display h3" id="price_display" {% if not product.display_price %}style="display:none;"{% endif %} data-product-price="{{ product.price }}">{% if product.display_price %}{{ product.price | money }}{% endif %}</div>
             </span>
@@ -31,15 +42,7 @@
                <div id="compare_price_display" class="js-compare-price-display price-compare {% if settings.payment_discount_price %}font-body{% endif %}" {% if not product.compare_at_price or not product.display_price %}style="display:none;"{% else %} style="display:block;"{% endif %}>{% if product.compare_at_price and product.display_price %}{{ product.compare_at_price | money }}{% endif %}</div>
             </span>
 
-            {{ component('payment-discount-price', {
-                    visibility_condition: settings.payment_discount_price,
-                    location: 'product',
-                    container_classes: "h6 font-weight-normal mt-2",
-                    text_classes: {
-                        price: 'h5 text-accent font-weight-bold',
-                    },
-                }) 
-            }}
+            
         </div>
 
         {% set installments_info = product.installments_info_from_any_variant %}
@@ -54,13 +57,13 @@
         {% if show_payments_info %}
             {{ component('installments', {'location' : 'product_detail', container_classes: { installment: "mb-2 font-small"}}) }}
         {% endif %}
-            <div class="js-product-discount-container mb-2 font-small" style="{{ discountContainerStyle }}">
+            <!--<div class="js-product-discount-container mb-2 font-small" style="{{ discountContainerStyle }}">
                 <span class="text-accent">{{ product.maxPaymentDiscount.value }}% {{'de descuento' | translate }}</span> {{'pagando con' | translate }} {{ product.maxPaymentDiscount.paymentProviderName }}
                 {% set discountDisclaimerStyle = not product.showMaxPaymentDiscountNotCombinableDisclaimer ? "display: none" %}
                     <div class="js-product-discount-disclaimer font-small opacity-60" style="{{ discountDisclaimerStyle }}">
                         {{ "No acumulable con otras promociones" | translate }}
                     </div>
-            </div>
+            </div>-->
         {% if not home_main_product and (show_payments_info or hasDiscount) %}
                 <a id="btn-installments" class="font-small" href="#" {% if not (product.get_max_installments and product.get_max_installments(false)) %}style="display: none;"{% endif %}>
                     <svg class="icon-inline icon-lg svg-icon-text"><use xlink:href="#credit-card"/></svg>
@@ -127,6 +130,8 @@
 
                 {# Add to cart CTA #}
 
+                <!--<input class="btn btn-primary btn-big btn-block" type="submit" name="go_to_checkout" value="Comprar agora" data-component="cart.checkout-button"/>-->
+
                 <input type="submit" class="js-addtocart js-prod-submit-form btn-add-to-cart btn btn-primary btn-big btn-block {{ state }}" value="{{ texts[state] | translate }}" {% if state == 'nostock' %}disabled{% endif %} data-store="product-buy-button" data-component="product.add-to-cart"/>
 
                 {# Fake add to cart CTA visible during add to cart event #}
@@ -152,7 +157,7 @@
             {% set show_product_fulfillment = settings.shipping_calculator_product_page and (store.has_shipping or store.branches) and not product.free_shipping and not product.is_non_shippable %}
 
             {% if show_product_fulfillment %}
-                <div class="mb-4 pb-2">
+                <div class="mb-4 pb-2 background-dna">
                     {# Shipping calculator and branch link #}
 
                     <div id="product-shipping-container" class="product-shipping-calculator list" {% if not product.display_price or not product.has_stock %}style="display:none;"{% endif %} data-shipping-url="{{ store.shipping_calculator_url }}">

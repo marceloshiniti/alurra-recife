@@ -170,7 +170,7 @@
       <div class="row {% if cart_page %}no-gutters{% endif %} mb-3 h4">
         <span class="col-auto {% if cart_page %}pl-md-0{% endif %}">{{ "Total" | translate }}:</span>
         <span class="js-cart-total {% if cart.free_shipping.cart_has_free_shipping %}js-free-shipping-achieved{% endif %} {% if cart.shipping_data.selected %}js-cart-saved-shipping{% endif %} col text-right {% if cart_page %}pr-md-0{% endif %}" data-component="cart.total" data-component-value={{ cart.total }}>{{ cart.total | money }}</span>
-        <span class="col-12 {% if cart_page %}pr-md-0{% endif %}">
+        <span class="col-12 {% if cart_page %}pr-md-0{% endif %} dna-carrinho-modal">
           {{ component('payment-discount-price', {
               visibility_condition: settings.payment_discount_price,
               location: 'cart',

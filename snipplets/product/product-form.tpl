@@ -24,6 +24,15 @@
     <div class="price-container" data-store="product-price-{{ product.id }}">
         <div class="mb-3">
             
+            
+            <span class="d-inline-block mr-1">
+            	<div class="js-price-display h3" id="price_display" {% if not product.display_price %}style="display:none;"{% endif %} data-product-price="{{ product.price }}">{% if product.display_price %}{{ product.price | money }}{% endif %}</div>
+            </span>
+            
+            <div class="pix-icon" style="display: inline-block; vertical-align: middle;">
+                <!-- Insira o código SVG aqui -->
+                <img src="{{ 'images/pix.svg' | static_url }}" class="pix" alt="Pix">
+            </div>
             {{ component('payment-discount-price', {
                     visibility_condition: settings.payment_discount_price,
                     location: 'product',
@@ -33,10 +42,7 @@
                     },
                 }) 
             }}
-
-            <span class="d-inline-block mr-1">
-            	<div class="js-price-display h3" id="price_display" {% if not product.display_price %}style="display:none;"{% endif %} data-product-price="{{ product.price }}">{% if product.display_price %}{{ product.price | money }}{% endif %}</div>
-            </span>
+            
             {% include 'snipplets/labels.tpl' with {product_detail: true} %}
             <span class="d-block font-big title-font-family mt-1">
                <div id="compare_price_display" class="js-compare-price-display price-compare {% if settings.payment_discount_price %}font-body{% endif %}" {% if not product.compare_at_price or not product.display_price %}style="display:none;"{% else %} style="display:block;"{% endif %}>{% if product.compare_at_price and product.display_price %}{{ product.compare_at_price | money }}{% endif %}</div>
@@ -57,13 +63,13 @@
         {% if show_payments_info %}
             {{ component('installments', {'location' : 'product_detail', container_classes: { installment: "mb-2 font-small"}}) }}
         {% endif %}
-            <!--<div class="js-product-discount-container mb-2 font-small" style="{{ discountContainerStyle }}">
+            <div class="js-product-discount-container mb-2 font-small" style="{{ discountContainerStyle }}">
                 <span class="text-accent">{{ product.maxPaymentDiscount.value }}% {{'de descuento' | translate }}</span> {{'pagando con' | translate }} {{ product.maxPaymentDiscount.paymentProviderName }}
                 {% set discountDisclaimerStyle = not product.showMaxPaymentDiscountNotCombinableDisclaimer ? "display: none" %}
                     <div class="js-product-discount-disclaimer font-small opacity-60" style="{{ discountDisclaimerStyle }}">
                         {{ "No acumulable con otras promociones" | translate }}
                     </div>
-            </div>-->
+            </div>
         {% if not home_main_product and (show_payments_info or hasDiscount) %}
                 <a id="btn-installments" class="font-small" href="#" {% if not (product.get_max_installments and product.get_max_installments(false)) %}style="display: none;"{% endif %}>
                     <svg class="icon-inline icon-lg svg-icon-text"><use xlink:href="#credit-card"/></svg>
@@ -118,21 +124,27 @@
                 {{ settings.last_product_text }}
             </div>
         {% endif %}
-
-        <div class="row no-gutters mb-4 {% if settings.product_stock %}mb-md-3{% endif %}">
+        
+        <div class="row col-11" style="margin-bottom: 20px;">
+        <input class="btn btn-primary btn-big btn-block bt-comprar-dna1" type="submit" name="go_to_checkout" value="Comprar agora" data-component="cart.checkout-button"/>
+        </div>
+        
+        <div class="row col-11 no-gutters mb-4 {% if settings.product_stock %}mb-md-3{% endif %}" style="padding: 0;">
+            
             {% set product_quantity_home_product_value = home_main_product ? true : false %}
             {% if show_product_quantity %}
-                {% include "snipplets/product/product-quantity.tpl" with {home_main_product: product_quantity_home_product_value} %}
+                <!--{% include "snipplets/product/product-quantity.tpl" with {home_main_product: product_quantity_home_product_value} %}-->
             {% endif %}
             {% set state = store.is_catalog ? 'catalog' : (product.available ? product.display_price ? 'cart' : 'contact' : 'nostock') %}
             {% set texts = {'cart': "Agregar al carrito", 'contact': "Consultar precio", 'nostock': "Sin stock", 'catalog': "Consultar"} %}
-            <div class="{% if show_product_quantity %}col-8 {% if not home_main_product %}col-md-9{% endif %}{% else %}col-12{% endif %}">
+            <div class="{% if show_product_quantity %}col-8 {% if not home_main_product %}col-md-11{% endif %}{% else %}col-12{% endif %}">
 
                 {# Add to cart CTA #}
 
-                <!--<input class="btn btn-primary btn-big btn-block" type="submit" name="go_to_checkout" value="Comprar agora" data-component="cart.checkout-button"/>-->
-
-                <input type="submit" class="js-addtocart js-prod-submit-form btn-add-to-cart btn btn-primary btn-big btn-block {{ state }}" value="{{ texts[state] | translate }}" {% if state == 'nostock' %}disabled{% endif %} data-store="product-buy-button" data-component="product.add-to-cart"/>
+                <button type="submit" class="js-addtocart js-prod-submit-form btn-add-to-cart btn btn-primary btn-big btn-block {{ state }} bt-comprar-dna" {% if state == 'nostock' %}disabled {% endif %} data-store="product-buy-button" data-component="product.add-to-cart">
+                {{ "images/carrinho.svg" | static_url | img_tag("Cart") }}
+                Adicionar ao carrinho
+                </button>
 
                 {# Fake add to cart CTA visible during add to cart event #}
 
@@ -141,7 +153,7 @@
             </div>
 
             {% if settings.ajax_cart %}
-                <div class="col-12">
+                <div class="col-11">
                     <div class="js-added-to-cart-product-message font-small my-3" style="display: none;">
                         <svg class="icon-inline icon-lg svg-icon-text"><use xlink:href="#check"/></svg>
                         <span>

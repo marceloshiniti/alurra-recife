@@ -34,8 +34,6 @@
                 </div>
             </div>
             
-            <!-- scrollbar -->
-            <div class="swiper-scrollbar"></div>
             
             <div class="js-swiper-categories-prev swiper-button-prev swiper-button-outside svg-icon-text d-none d-md-block">
                 <svg class="icon-inline icon-lg icon-flip-horizontal svg-icon-text"><use xlink:href="#chevron"/></svg>

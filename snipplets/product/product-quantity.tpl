@@ -1,6 +1,6 @@
 {# Product quantity #}
 
-<div class="col-4 {% if not home_main_product %}col-md-3{% endif %} mx-neg-1">
+<div class="col-4 {% if not home_main_product %}col-md-2{% endif %} mx-neg-1">
     {% embed "snipplets/forms/form-input.tpl" with{
     type_number: true, input_value: '1',
     input_name: 'quantity' ~ item.id, 
